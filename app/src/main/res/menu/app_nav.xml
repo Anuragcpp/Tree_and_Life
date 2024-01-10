@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item android:id="@+id/menu_home"
+        android:icon="@drawable/icon__home"
+        app:cnb_iconColor="@color/icon_color"
+        android:title="Home"/>
+    <item android:id="@+id/menu_global"
+        android:icon="@drawable/icon__global"
+        app:cnb_iconColor="@color/icon_color"
+        android:title="Social"/>
+    <item android:id="@+id/menu_event"
+        android:icon="@drawable/icon__calendar"
+        app:cnb_iconColor="@color/icon_color"
+        android:title="Event"/>
+    <item android:id="@+id/menu_profile"
+        android:icon="@drawable/icon__user"
+        app:cnb_iconColor="@color/icon_color"
+        android:title="Profile"/>
+</menu>
