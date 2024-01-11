@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+<<<<<<< HEAD
 import `as`.example.life.R
+=======
+import `as` .example.life.R
+>>>>>>> 85589f2dce17c6be84d6d016d5c2d3bd0a6f9b72
 
 
 class HomeFragment : Fragment() {
