@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     app:cardElevation="20dp"
+    app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="10dp"
     android:layout_margin="10dp"
     android:layout_height="210dp"
