@@ -6,4 +6,8 @@
     <color name="text_color">#343434</color>
     <color name="text_color_sub">#555555</color>
     <color name="icon_color">#229A3B</color>
+    <color name="LoginBgColor">#a4c3b2</color>
+    <color name="loginCardBg">#cad2c5</color>
+    <color name="loginTextColor">#2f3e46</color>
+    <color name="signUpLinkColor">#778da9</color>
 </resources>
