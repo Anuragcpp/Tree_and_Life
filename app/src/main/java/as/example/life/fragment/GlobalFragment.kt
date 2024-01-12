@@ -35,41 +35,6 @@ class GlobalFragment : Fragment() {
         }
     }
 
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        val view:View = inflater.inflate(R.layout.fragment_global, container, false)
-//
-//        allPlantItems = view.findViewById(R.id.all_plant_items)
-//
-//        //initializing the DataList
-//        dataList = ArrayList()
-//
-//        dataList.add(
-//            GlobalItemsModel(R.drawable.app_icon,"Harshal verma","1500",
-//                "Rajasthan,Suratgarh","This is a unique breed of plant"))
-//
-//        dataList.add(GlobalItemsModel(R.drawable.app_icon,"Harshal verma","1500",
-//            "Rajasthan,Suratgarh","This is a unique breed of plant"))
-//
-//        dataList.add(GlobalItemsModel(R.drawable.app_icon,"Harshal verma","1500",
-//            "Rajasthan,Suratgarh","This is a unique breed of plant"))
-//
-//        dataList.add(GlobalItemsModel(R.drawable.app_icon,"Harshal verma","1500",
-//            "Rajasthan,Suratgarh","This is a unique breed of plant"))
-//
-//        dataList.add(GlobalItemsModel(R.drawable.app_icon,"Harshal verma","1500",
-//            "Rajasthan,Suratgarh","This is a unique breed of plant"))
-//
-////        allItemsAdapter = GlobalPlantAdapter(dataList,context)
-//        allItemsAdapter = GlobalPlantAdapter(dataList)
-//
-//        allPlantItems.adapter = allItemsAdapter
-//
-//        return view
-//    }
-
 
 
     //Updated code ->

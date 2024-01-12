@@ -1,11 +1,18 @@
 package `as`.example.life.fragment
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.AdapterListUpdateCallback
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import `as`.example.life.R
+import `as`.example.life.adapter.EventAdapter
+import `as`.example.life.databinding.FragmentEventBinding
+import `as`.example.life.helper.EventItemModel
 
 //import as .example.life.R
 
@@ -20,16 +27,16 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class EventFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    private lateinit var binding: FragmentEventBinding
+    private lateinit var allEventItem : RecyclerView
+    private lateinit var eventItemAdapter : EventAdapter
+    private lateinit var context : Context
+    private lateinit var dataList: ArrayList<EventItemModel>
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        this.context = context
     }
 
     override fun onCreateView(
@@ -37,26 +44,114 @@ class EventFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_event, container, false)
+        binding = FragmentEventBinding.inflate(inflater,container,false)
+
+
+        allEventItem = binding.allEventItems
+
+        allEventItem.layoutManager = LinearLayoutManager(context)
+
+        initializeData()
+        populateData()
+
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment EventFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            EventFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+
+
+    private fun initializeData() {
+        dataList = ArrayList()
+        dataList.add(
+            EventItemModel(
+                R.drawable.app_icon,
+                "Assam",
+                "50000",
+                "Habibi come to assam!!"
+            )
+        )
+
+        dataList.add(
+            EventItemModel(
+                R.drawable.app_icon,
+                "Assam",
+                "50000",
+                "Habibi come to assam!!"
+            )
+        )
+
+        dataList.add(
+            EventItemModel(
+                R.drawable.app_icon,
+                "Assam",
+                "50000",
+                "Habibi come to assam!!"
+            )
+        )
+
+        dataList.add(
+            EventItemModel(
+                R.drawable.app_icon,
+                "Assam",
+                "50000",
+                "Habibi come to assam!!"
+            )
+        )
+
+        dataList.add(
+            EventItemModel(
+                R.drawable.app_icon,
+                "Assam",
+                "50000",
+                "Habibi come to assam!!"
+            )
+        )
+
+        dataList.add(
+            EventItemModel(
+                R.drawable.app_icon,
+                "Assam",
+                "50000",
+                "Habibi come to assam!!"
+            )
+        )
+
+        dataList.add(
+            EventItemModel(
+                R.drawable.app_icon,
+                "Assam",
+                "50000",
+                "Habibi come to assam!!"
+            )
+        )
+
+        dataList.add(
+            EventItemModel(
+                R.drawable.app_icon,
+                "Assam",
+                "50000",
+                "Habibi come to assam!!"
+            )
+        )
+
+        dataList.add(
+            EventItemModel(
+                R.drawable.app_icon,
+                "Assam",
+                "50000",
+                "Habibi come to assam!!"
+            )
+        )
     }
+
+    private fun populateData() {
+
+        eventItemAdapter = EventAdapter(dataList)
+
+        allEventItem.adapter = eventItemAdapter
+
+        eventItemAdapter.notifyDataSetChanged()
+    }
+
+
 }

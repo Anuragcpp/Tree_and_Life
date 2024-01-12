@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    app:cardElevation="20dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp"
+    android:layout_height="210dp"
+    android:layout_width="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/event_item_img_gb"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/plant_demo"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+            android:layout_toEndOf="@+id/event_item_img_gb">
+
+            <TextView
+                android:id="@+id/event_item_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textColor="@color/text_color"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/event_item_prize_pool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1500"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:layout_below="@+id/event_item_location"
+                android:textColor="@color/icon_color"
+                android:layout_marginTop="5dp"/>
+
+
+
+            <TextView
+                android:id="@+id/event_item_discription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ldkfjalsdkfj lkdjaflks j lfjalkl  ldfajsldf f kdj  kldsafjlsdj f a fla..."
+                android:layout_below="@+id/event_item_prize_pool"
+                android:layout_marginTop="5dp"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@color/text_color_sub"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apply"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:background="@drawable/btn_bg"
+                android:padding="10dp"
+                android:textColor="@color/text_color"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="sans-serif"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+
+</layout>
