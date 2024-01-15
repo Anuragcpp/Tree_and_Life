@@ -134,16 +134,16 @@
         android:id="@+id/user_credit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/invite_solid_bg"
+        android:background="@drawable/btn_bg"
         android:fontFamily="sans-serif"
         android:padding="10dp"
         android:text="Invite your friends"
         android:textColor="@color/text_color_sub"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_horizontal_5"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vertical_left"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline_horizontal_3"
-        app:layout_constraintVertical_bias="0.248" />
+        app:layout_constraintVertical_bias="0.255" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
