@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LoginBgColor"
+    android:background="@color/app_bg"
     tools:context=".MainActivity"
     android:orientation="vertical">
 
@@ -16,11 +16,14 @@
             android:id="@+id/login_account_demo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="40sp"
-            android:layout_margin="40dp"
-            android:textColor="@color/text_color"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="40dp"
             android:fontFamily="sans-serif-condensed-medium"
-            android:text="Login your\n Account"/>
+            android:text="Login your\n Account"
+            android:textColor="@color/text_color"
+            android:textSize="40sp" />
 
 
         <com.google.android.material.card.MaterialCardView
@@ -29,10 +32,9 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:background="@color/white"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            app:cardBackgroundColor="@color/loginCardBg"
+            app:cardBackgroundColor="@color/white"
             >
 
             <LinearLayout
@@ -45,13 +47,18 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/text_color"
+                    app:hintTextColor="@color/text_color_sub"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_marginTop="20dp">
 
                     <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/et_Text"
+                        android:id="@+id/user_email_la"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColorHint="@color/text_color_sub"
+                        android:textColor="@color/text_color"
+                        android:fontFamily="sans-serif"
                         android:hint="email"
                         android:inputType="textCapWords"/>
 
@@ -60,25 +67,35 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/text_color"
+                    app:hintTextColor="@color/text_color_sub"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_marginTop="20dp">
 
                     <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/et_password"
+                        android:id="@+id/user_password_la"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="password"
+                        android:textColorHint="@color/text_color_sub"
+                        android:textColor="@color/text_color"
+                        android:fontFamily="sans-serif"
                         android:inputType="textCapWords" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <Button
-                    android:id="@+id/btn_Start"
+                <TextView
+                    android:id="@+id/sign_in_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/SignIn"
-                    android:textSize="30sp"/>
+                    android:textSize="30sp"
+                    android:textColor="@color/text_color"
+                    android:textAlignment="center"
+                    android:background="@drawable/btn_bg"
+                    android:padding="5dp"
+                    />
 
             </LinearLayout>
 
@@ -96,13 +113,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/text_color_sub"
+                android:fontFamily="sans-serif"
                 android:text="don't have an account"
                 android:gravity="center"/>
 
             <TextView
+                android:id="@+id/sign_up_gt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" Sign Up"
+                android:padding="5dp"
                 android:textColor="@color/signUpLinkColor"
                 android:gravity="center"/>
         </LinearLayout>

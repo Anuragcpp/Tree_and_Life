@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LoginBgColor"
+    android:background="@color/app_bg"
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:gravity="center">
@@ -18,11 +18,14 @@
             android:id="@+id/back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/back_icon"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/btn_bg"
             android:padding="10dp"
-            android:layout_alignParentEnd="true"
-            android:layout_margin="30dp"/>
+            android:src="@drawable/back_icon" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -45,7 +48,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            app:cardBackgroundColor="@color/loginCardBg"
+            app:cardBackgroundColor="@color/white"
             >
 
             <LinearLayout
@@ -60,14 +63,17 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/text_color"
+                    app:hintTextColor="@color/text_color_sub"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_marginTop="20dp"
-                    >
+                    android:layout_marginTop="20dp">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/user_username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColorHint="@color/text_color_sub"
+                        android:textColor="@color/text_color"
                         android:hint="first last name"
                         android:inputType="textCapWords"
                         />
@@ -77,14 +83,17 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/text_color"
+                    app:hintTextColor="@color/text_color_sub"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_marginTop="20dp"
-                    >
+                    android:layout_marginTop="20dp">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/user_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColorHint="@color/text_color_sub"
+                        android:textColor="@color/text_color"
                         android:hint="email"
                         android:inputType="textCapWords"
                         />
@@ -94,13 +103,16 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/text_color"
+                    app:hintTextColor="@color/text_color_sub"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_marginTop="20dp"
-                    >
+                    android:layout_marginTop="20dp">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/user_password"
                         android:layout_width="match_parent"
+                        android:textColorHint="@color/text_color_sub"
+                        android:textColor="@color/text_color"
                         android:layout_height="wrap_content"
                         android:hint="password"
                         android:inputType="textCapWords"
@@ -115,6 +127,7 @@
                     android:layout_marginTop="20dp"
                     android:text="@string/sign_up"
                     android:textSize="30sp"
+                    android:textColor="@color/text_color"
                     android:textAlignment="center"
                     android:background="@drawable/btn_bg"
                     android:padding="5dp"
