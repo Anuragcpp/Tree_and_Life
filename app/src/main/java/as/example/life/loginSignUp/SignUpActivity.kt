@@ -11,6 +11,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import `as`.example.life.R
 import `as`.example.life.databinding.ActivitySignUpBinding
 import `as`.example.life.helper.UserInfo
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -69,24 +70,47 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun signUpWithEmailPassword(userEmailSt: String, userPasswordSt: String,userNameSt:String) {
-        auth.createUserWithEmailAndPassword(userEmailSt,userPasswordSt)
-            .addOnCompleteListener {
-                if (it.isComplete){
-                    Toast.makeText(this, "Sign up successful", Toast.LENGTH_SHORT).show()
-                    val userId = auth.currentUser?.uid
-                    storeUserInfo(userId,userEmailSt,userNameSt,userPasswordSt)
-                    val intent = Intent(this,UserAllInfo::class.java)
-                    startActivity(intent)
-                    finish()
-                }else{
-                    Toast.makeText(this, "Sign up failed: ${it.exception?.message}", Toast.LENGTH_SHORT).show()
-                }
-            }
+
+        if(userEmailSt.isNotEmpty() && userPasswordSt.isNotEmpty() && userNameSt.isNotEmpty()){
+//            auth.createUserWithEmailAndPassword(userEmailSt,userPasswordSt)
+//                .addOnCompleteListener {
+//                    if (it.isComplete){
+//                        Toast.makeText(this, "Sign up successful", Toast.LENGTH_SHORT).show()
+//                        val userId = auth.currentUser?.uid
+//                        storeUserInfo(userId,userEmailSt,userNameSt,userPasswordSt)
+//                        val intent = Intent(this,UserAllInfo::class.java)
+//                        startActivity(intent)
+//                        finish()
+//                    }else{
+//                        Toast.makeText(this, "Sign up failed: ${it.exception?.message}", Toast.LENGTH_SHORT).show()
+//                    }
+//                }
+
+            auth.createUserWithEmailAndPassword(userEmailSt,userPasswordSt).addOnCompleteListener(
+                OnCompleteListener {
+                    if (it.isSuccessful){
+                        //Create user
+                        Toast.makeText(this, "Sign up successful", Toast.LENGTH_SHORT).show()
+
+                        //passing the uid to the storeInfo function
+                        storeUserInfo(auth.currentUser?.uid,userEmailSt,userNameSt,userPasswordSt)
+
+                        //nevigating to the next Activity
+                        val intent = Intent(this,UserAllInfo::class.java)
+                        startActivity(intent)
+                        finish()
+                    }else{
+                        Toast.makeText(this, "Sign up failed: ${it.exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                })
+        }
+
     }
 
     private fun storeUserInfo(userId: String?, userEmailSt: String, userNameSt: String, userPasswordSt: String) {
         val userInfo = UserInfo(userEmailSt, userNameSt,userPasswordSt)
-        database.child(userId.orEmpty()).setValue(userInfo)
+//        database.child(userId.orEmpty()).setValue(userInfo)
+        database.child(userId!!).setValue(userInfo)
     }
 
     @Deprecated("Deprecated in Java")
