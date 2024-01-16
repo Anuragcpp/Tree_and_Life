@@ -10,8 +10,11 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import `as`.example.life.R
 import `as`.example.life.databinding.ActivitySignUpBinding
+import `as`.example.life.helper.UserInfo
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlin.math.sign
 
 class SignUpActivity : AppCompatActivity() {
@@ -24,6 +27,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var backBtn:ImageView
     private lateinit var goToLogin:TextView
+    private lateinit var database:DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
@@ -38,6 +42,7 @@ class SignUpActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         backBtn = binding.backBtn
         goToLogin = binding.userLoginGt
+        database = FirebaseDatabase.getInstance().getReference("Users")
 
         goToLogin.setOnClickListener {
             val intent = Intent(this,LoginActivity::class.java)
@@ -58,20 +63,30 @@ class SignUpActivity : AppCompatActivity() {
             if (userEmailSt.isEmpty() || userNameSt.isEmpty() || userPasswordSt.isEmpty()){
                 Toast.makeText(this,"field is empty", Toast.LENGTH_SHORT).show()
             } else{
-                signUpWithEmailPassword(userEmailSt,userPasswordSt)
+                signUpWithEmailPassword(userEmailSt,userPasswordSt,userNameSt)
             }
         }
     }
 
-    private fun signUpWithEmailPassword(userEmailSt: String, userPasswordSt: String) {
+    private fun signUpWithEmailPassword(userEmailSt: String, userPasswordSt: String,userNameSt:String) {
         auth.createUserWithEmailAndPassword(userEmailSt,userPasswordSt)
             .addOnCompleteListener {
                 if (it.isComplete){
                     Toast.makeText(this, "Sign up successful", Toast.LENGTH_SHORT).show()
+                    val userId = auth.currentUser?.uid
+                    storeUserInfo(userId,userEmailSt,userNameSt,userPasswordSt)
+                    val intent = Intent(this,UserAllInfo::class.java)
+                    startActivity(intent)
+                    finish()
                 }else{
                     Toast.makeText(this, "Sign up failed: ${it.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun storeUserInfo(userId: String?, userEmailSt: String, userNameSt: String, userPasswordSt: String) {
+        val userInfo = UserInfo(userEmailSt, userNameSt,userPasswordSt)
+        database.child(userId.orEmpty()).setValue(userInfo)
     }
 
     @Deprecated("Deprecated in Java")

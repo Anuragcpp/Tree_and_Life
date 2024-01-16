@@ -126,11 +126,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/sign_up"
-                    android:textSize="30sp"
+                    android:textSize="20sp"
                     android:textColor="@color/text_color"
                     android:textAlignment="center"
                     android:background="@drawable/btn_bg"
-                    android:padding="5dp"
+                    android:padding="15dp"
                     />
 
 

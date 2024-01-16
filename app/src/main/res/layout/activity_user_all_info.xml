@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    android:orientation="vertical"
+    tools:context=".loginSignUp.UserAllInfo">
+
+    <RelativeLayout
+    android:id="@+id/top_bar"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="20sp"
+        android:textColor="@color/text_color"
+        android:text="Plant Information"/>
+    </RelativeLayout>
+
+<View
+android:layout_width="match_parent"
+android:layout_height="1dp"
+android:background="@color/black"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/user_plant_img_ui"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/btn_bg"
+                android:padding="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/plant_demo" />
+
+            <TextView
+                android:id="@+id/plant_img_text_demo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text_color_sub"
+                android:layout_below="@+id/user_plant_img_ui"
+                android:layout_centerHorizontal="true"
+                android:text="upload image your plant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_below="@+id/plant_img_text_demo"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/user_plant_name_ui"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:background="@drawable/invite_solid_bg"
+                    android:textSize="20sp"
+                    android:textColor="@color/text_color"
+                    android:hint="Plant Name"
+                    android:fontFamily="sans-serif-condensed-medium"/>
+
+                <EditText
+                    android:id="@+id/user_plant_location_ui"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:background="@drawable/invite_solid_bg"
+                    android:textSize="20sp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/text_color"
+                    android:hint="Location"
+                    android:fontFamily="sans-serif-condensed-medium"/>
+
+                <EditText
+                    android:id="@+id/user_plant_info_ui"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:padding="10dp"
+                    android:background="@drawable/invite_solid_bg"
+                    android:textSize="20sp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/text_color"
+                    android:hint="Plant Information"
+                    android:gravity="top|left"
+                    android:fontFamily="sans-serif-condensed-medium"/>
+
+
+                <TextView
+                    android:id="@+id/go_to_dashboard_ui"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Done"
+                    android:textSize="20sp"
+                    android:textColor="@color/text_color"
+                    android:textAlignment="center"
+                    android:background="@drawable/btn_bg"
+                    android:padding="15dp"
+                    />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>
