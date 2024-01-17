@@ -11,6 +11,10 @@
         android:icon="@drawable/icon__global"
         app:cnb_iconColor="@color/icon_color"
         android:title="Social"/>
+    <item android:id="@+id/menu_cemera"
+        android:icon="@drawable/baseline_linked_camera_24"
+        app:cnb_iconColor="@color/icon_color"
+        android:title="Camera"/>
     <item android:id="@+id/menu_event"
         android:icon="@drawable/icon__calendar"
         app:cnb_iconColor="@color/icon_color"
