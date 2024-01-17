@@ -24,6 +24,7 @@ class UserAllInfo : AppCompatActivity() {
     private lateinit var goToDashboard:TextView
     private lateinit var auth: FirebaseAuth
     private lateinit var dataBase : DatabaseReference
+    private lateinit var skipToDashboard:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUserAllInfoBinding.inflate(layoutInflater)
@@ -35,10 +36,18 @@ class UserAllInfo : AppCompatActivity() {
         userPlantLocation = binding.userPlantLocationUi
         userPlantDesc = binding.userPlantInfoUi
         goToDashboard = binding.goToDashboardUi
+        skipToDashboard = binding.skipToDashboard
 
         //initializing the firebase Instance
         auth = FirebaseAuth.getInstance()
         dataBase = FirebaseDatabase.getInstance().getReference("Users")
+
+        //skip information
+        skipToDashboard.setOnClickListener {
+            val intent = Intent(this,DashboardActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         goToDashboard.setOnClickListener {
             val userPlantNameSt  = userPlantName.text.toString()
