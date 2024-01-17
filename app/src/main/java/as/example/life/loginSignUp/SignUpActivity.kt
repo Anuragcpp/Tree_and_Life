@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
-import `as`.example.life.R
 import `as`.example.life.databinding.ActivitySignUpBinding
 import `as`.example.life.helper.UserInfo
 import com.google.android.gms.tasks.OnCompleteListener
@@ -16,7 +15,6 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlin.math.sign
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -72,19 +70,6 @@ class SignUpActivity : AppCompatActivity() {
     private fun signUpWithEmailPassword(userEmailSt: String, userPasswordSt: String,userNameSt:String) {
 
         if(userEmailSt.isNotEmpty() && userPasswordSt.isNotEmpty() && userNameSt.isNotEmpty()){
-//            auth.createUserWithEmailAndPassword(userEmailSt,userPasswordSt)
-//                .addOnCompleteListener {
-//                    if (it.isComplete){
-//                        Toast.makeText(this, "Sign up successful", Toast.LENGTH_SHORT).show()
-//                        val userId = auth.currentUser?.uid
-//                        storeUserInfo(userId,userEmailSt,userNameSt,userPasswordSt)
-//                        val intent = Intent(this,UserAllInfo::class.java)
-//                        startActivity(intent)
-//                        finish()
-//                    }else{
-//                        Toast.makeText(this, "Sign up failed: ${it.exception?.message}", Toast.LENGTH_SHORT).show()
-//                    }
-//                }
 
             auth.createUserWithEmailAndPassword(userEmailSt,userPasswordSt).addOnCompleteListener(
                 OnCompleteListener {
