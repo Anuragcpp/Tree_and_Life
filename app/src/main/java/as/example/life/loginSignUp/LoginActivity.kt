@@ -74,7 +74,7 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this,"Login Successfull" , Toast.LENGTH_SHORT).show()
 
                     //navigate to the DashBord Activity
-                    val intent : Intent = Intent(this, DashboardActivity::class.java)
+                    val intent : Intent = Intent(this, UserAllInfo::class.java)
                     startActivity(intent)
                     finish()
                 }else{

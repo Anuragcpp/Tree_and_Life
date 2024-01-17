@@ -41,14 +41,12 @@ class UserAllInfo : AppCompatActivity() {
         dataBase = FirebaseDatabase.getInstance().getReference("Users")
 
         goToDashboard.setOnClickListener {
-            var userPlantImgSt : CharSequence = userPlantImg.toString()
-            userPlantImgSt = "plant Img"
-            val userPlantNameSt  = userPlantName.text.trim()
-            val userPlantLocationSt = userPlantLocation.text.trim()
-            val userPlantDecSt = userPlantDesc.text.trim()
+            val userPlantNameSt  = userPlantName.text.toString()
+            val userPlantLocationSt = userPlantLocation.text.toString()
+            val userPlantDecSt = userPlantDesc.text.toString()
 
             if(userPlantDecSt.isNotEmpty() && userPlantLocationSt.isNotEmpty() && userPlantNameSt.isNotEmpty()){
-                saveData(userPlantImgSt,userPlantNameSt,userPlantLocationSt,userPlantDecSt)
+                saveData(userPlantNameSt,userPlantLocationSt,userPlantDecSt)
             }else{
                 Toast.makeText(this, "Please fill the Empty fields",Toast.LENGTH_SHORT).show()
             }
@@ -57,16 +55,15 @@ class UserAllInfo : AppCompatActivity() {
     }
 
     private fun saveData(
-        userPlantImgSt : CharSequence,
-        userPlantNameSt: CharSequence,
-        userPlantLocationSt: CharSequence,
-        userPlantDecSt: CharSequence
+        userPlantNameSt: String,
+        userPlantLocationSt: String,
+        userPlantDecSt: String
     ) {
 
         //Store the User Plant data to the data base with a new brach with the plant name
-        val userPlantInfo = UserPlantInfo(userPlantImgSt,userPlantNameSt,userPlantLocationSt,userPlantDecSt)
+        val userPlantInfo = UserPlantInfo(userPlantNameSt,userPlantLocationSt,userPlantDecSt)
 
-        dataBase.child(auth.currentUser!!.uid).child(userPlantNameSt.toString()).setValue(userPlantInfo)
+        dataBase.child(auth.currentUser!!.uid).child(userPlantNameSt).push().setValue(userPlantInfo)
 
 
         //Navigate to the DashBord Activity

@@ -80,7 +80,7 @@ class SignUpActivity : AppCompatActivity() {
                         //passing the uid to the storeInfo function
                         storeUserInfo(auth.currentUser?.uid,userEmailSt,userNameSt,userPasswordSt)
 
-                        //nevigating to the next Activity
+                        //Navigate to the AllUserInfo Activity
                         val intent = Intent(this,UserAllInfo::class.java)
                         startActivity(intent)
                         finish()
