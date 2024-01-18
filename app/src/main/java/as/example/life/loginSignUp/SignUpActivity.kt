@@ -78,7 +78,7 @@ class SignUpActivity : AppCompatActivity() {
                         Toast.makeText(this, "Sign up successful", Toast.LENGTH_SHORT).show()
 
                         //passing the uid to the storeInfo function
-                        storeUserInfo(auth.currentUser?.uid,userEmailSt,userNameSt,userPasswordSt)
+                        storeUserInfo(auth.currentUser?.uid,userNameSt,userEmailSt,userPasswordSt)
 
                         //Navigate to the AllUserInfo Activity
                         val intent = Intent(this,UserAllInfo::class.java)
@@ -93,7 +93,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun storeUserInfo(userId: String?, userEmailSt: String, userNameSt: String, userPasswordSt: String) {
-        val userInfo = UserInfo(userEmailSt, userNameSt,userPasswordSt)
+        val userInfo = UserInfo(userNameSt, userEmailSt,userPasswordSt)
 //        database.child(userId.orEmpty()).setValue(userInfo)
         database.child(userId!!).setValue(userInfo)
     }

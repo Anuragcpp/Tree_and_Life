@@ -1,3 +1,8 @@
 package `as`.example.life.helper
 
-data class UserInfo(val userName:String,val userEmail:String,val userPassword:String)
+data class UserInfo(val userName:String?=null,
+                    val userEmail:String?=null,
+                    val userPassword:String?=null){
+
+    constructor() : this("", "","")
+}
