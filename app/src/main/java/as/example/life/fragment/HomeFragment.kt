@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import `as`.example.life.R
+import `as`.example.life.databinding.FragmentHomeBinding
 
 
 class HomeFragment : Fragment() {
 
-
-
+    private lateinit var binding:FragmentHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
