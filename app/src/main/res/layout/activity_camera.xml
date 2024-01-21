@@ -1,9 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/app_bg"
     tools:context=".CameraActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/mPhotoImageView"
+                android:layout_width="270dp"
+                android:layout_height="290dp"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="view Display image"
+                android:src="@drawable/plant_demo"
+                android:paddingBottom="29dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mCameraButton"
+                android:background="@drawable/btn_bg"
+                android:padding="13dp"
+                android:text="Camera"
+                android:layout_marginStart="10dp"
+                android:layout_below="@id/mPhotoImageView"
+                android:textColor="@color/text_color" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mGalleryButton"
+                android:background="@drawable/btn_bg"
+                android:padding="13dp"
+                android:text="Gallery"
+                android:layout_below="@+id/mPhotoImageView"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="22dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/text_color"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mDetectionButton"
+                android:background="@drawable/btn_bg"
+                android:padding="13dp"
+                android:text="Detect"
+                android:layout_below="@+id/mPhotoImageView"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/text_color"/>
+
+            <TextView
+                android:id="@+id/mResultTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="result"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:layout_below="@+id/mDetectionButton"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:textColor="@color/text_color"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+</LinearLayout>

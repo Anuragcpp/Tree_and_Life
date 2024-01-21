@@ -70,27 +70,49 @@
             android:id="@+id/user_credit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:textSize="20dp"
-            android:textColor="@color/text_color_sub"
+            android:layout_below="@id/plant_btn_demo"
+            android:layout_marginTop="30dp"
             android:background="@drawable/invite_solid_bg"
+            android:fontFamily="sans-serif"
             android:padding="10dp"
-            android:layout_below="@id/user_plant_img"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:text="Your Credits 1500"/>
+            android:text="Your Credits 1500"
+            android:textColor="@color/text_color_sub"
+            android:textSize="20dp" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Daily CheckIn"
-            android:background="@drawable/btn_bg"
+        <LinearLayout
+            android:id="@+id/plant_btn_demo"
+            android:layout_width="match_parent"
+            android:layout_below="@id/user_plant_img"
+            android:layout_marginTop="10dp"
             android:padding="10dp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/user_credit"
-            android:layout_marginTop="30dp"
-            android:textColor="@color/text_color"
-            android:fontFamily="sans-serif-medium"/>
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/user_plant_check_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="sans-serif-medium"
+                android:padding="10dp"
+                android:text="Daily CheckIn"
+                android:textColor="@color/text_color" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/check_plant_disease"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_bg"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-medium"
+                android:padding="10dp"
+                android:text="Check Disease"
+                android:textColor="@color/text_color" />
+        </LinearLayout>
+
+
 
 
     </RelativeLayout>
