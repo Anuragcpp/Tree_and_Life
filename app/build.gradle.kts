@@ -1,8 +1,9 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
+@Suppress("DSL_SCOPE_VIOLATION") 
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     id("com.google.gms.google-services")
+    id("kotlin-kapt")
 }
 
 android {
@@ -41,6 +42,9 @@ android {
         viewBinding = true
         dataBinding = true
     }
+    aaptOptions{
+        noCompress +="tflite"
+    }
 }
 
 dependencies {
@@ -58,7 +62,14 @@ dependencies {
 
     //dependencies
     val navVersion = "2.7.6"
-    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
-    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
+    implementation(libs.navigation.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
     implementation("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
+
+    implementation ("org.tensorflow:tensorflow-lite:2.14.0")
+    implementation ("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation ("com.android.support:multidex:1.0.3")
+    implementation ("androidx.lifecycle:lifecycle-extensions:2.2.0")
+
+    implementation ("org.tensorflow:tensorflow-lite-support:0.4.0")
 }
