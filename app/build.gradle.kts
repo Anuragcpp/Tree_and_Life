@@ -71,5 +71,5 @@ dependencies {
     implementation ("com.android.support:multidex:1.0.3")
     implementation ("androidx.lifecycle:lifecycle-extensions:2.2.0")
 
-    implementation ("org.tensorflow:tensorflow-lite-support:0.4.0")
+    implementation ("org.tensorflow:tensorflow-lite-support:0.4.4")
 }
