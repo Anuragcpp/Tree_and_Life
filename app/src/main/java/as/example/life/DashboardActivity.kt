@@ -43,7 +43,6 @@ class DashboardActivity : AppCompatActivity() {
                 R.id.menu_global -> showFragment(globalFragment)
                 R.id.menu_event -> showFragment(eventFragment)
                 R.id.menu_profile -> showFragment(profileFragment)
-                R.id.menu_cemera -> cameraActivityStart()
             }
             true
         }
@@ -51,19 +50,7 @@ class DashboardActivity : AppCompatActivity() {
 
     }
 
-    private fun cameraActivityStart() {
-        val pictureIntent = Intent().apply {
-            action = MediaStore.ACTION_IMAGE_CAPTURE
-//            action = MediaStore.ACTION_PICK_IMAGES
-        }
-        try {
-            startActivity(pictureIntent)
-            finish()
-        }catch (e : ActivityNotFoundException){
-            Toast.makeText(this,e.message.toString(), Toast.LENGTH_SHORT).show()
-        }
 
-    }
 
     private fun showFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.nav_container,fragment)

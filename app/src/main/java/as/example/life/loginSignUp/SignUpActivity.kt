@@ -1,5 +1,6 @@
 package `as`.example.life.loginSignUp
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +10,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import `as`.example.life.databinding.ActivitySignUpBinding
+import `as`.example.life.fragment.HomeFragment
 import `as`.example.life.helper.UserInfo
+import com.google.android.gms.common.api.Api.ApiOptions.HasOptions
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
@@ -81,9 +84,14 @@ class SignUpActivity : AppCompatActivity() {
                         storeUserInfo(auth.currentUser?.uid,userNameSt,userEmailSt,userPasswordSt)
 
                         //Navigate to the AllUserInfo Activity
-                        val intent = Intent(this,UserAllInfo::class.java)
-                        startActivity(intent)
-                        finish()
+                        val intent = Intent(this,HomeFragment::class.java)
+                        try {
+                            startActivity(intent)
+                            finish()
+                        }catch (e: ActivityNotFoundException){
+                            Toast.makeText(this,e.message, Toast.LENGTH_SHORT).show()
+                        }
+
                     }else{
                         Toast.makeText(this, "Sign up failed: ${it.exception?.message}", Toast.LENGTH_SHORT).show()
                     }

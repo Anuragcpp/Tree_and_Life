@@ -10,6 +10,7 @@ import android.widget.ImageView
 
 //Firebase Realtime Database expects simple data types for serialization, and ImageView is not a simple data type.
 data class UserPlantInfo(val userPlantNameD : String,
+                         val userPlantCreditD : String,
                          val userPlantLocationD : String ,
                          val userPlantDecD : String )
 

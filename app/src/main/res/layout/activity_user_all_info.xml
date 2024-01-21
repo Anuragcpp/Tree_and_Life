@@ -108,6 +108,19 @@ android:background="@color/black"/>
                     android:fontFamily="sans-serif-condensed-medium"/>
 
                 <EditText
+                    android:id="@+id/user_plant_credit_ui"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:background="@drawable/invite_solid_bg"
+                    android:textSize="20sp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/text_color"
+                    android:hint="Credit"
+                    android:fontFamily="sans-serif-condensed-medium"/>
+
+
+                <EditText
                     android:id="@+id/user_plant_info_ui"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
@@ -119,6 +132,8 @@ android:background="@color/black"/>
                     android:hint="Plant Information"
                     android:gravity="top|left"
                     android:fontFamily="sans-serif-condensed-medium"/>
+
+
 
 
                 <TextView

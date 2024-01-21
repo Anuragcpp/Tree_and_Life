@@ -1,5 +1,6 @@
 package `as`.example.life.loginSignUp
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,7 @@ import android.widget.Toast
 import `as`.example.life.DashboardActivity
 import `as`.example.life.R
 import `as`.example.life.databinding.ActivityUserAllInfoBinding
+import `as`.example.life.fragment.GlobalFragment
 import `as`.example.life.helper.UserPlantInfo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -25,6 +27,7 @@ class UserAllInfo : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var dataBase : DatabaseReference
     private lateinit var skipToDashboard:TextView
+    private lateinit var userPlantCredit : EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUserAllInfoBinding.inflate(layoutInflater)
@@ -34,9 +37,11 @@ class UserAllInfo : AppCompatActivity() {
 
         userPlantName = binding.userPlantNameUi
         userPlantLocation = binding.userPlantLocationUi
+        userPlantCredit = binding.userPlantCreditUi
         userPlantDesc = binding.userPlantInfoUi
         goToDashboard = binding.goToDashboardUi
         skipToDashboard = binding.skipToDashboard
+
 
         //initializing the firebase Instance
         auth = FirebaseAuth.getInstance()
@@ -53,9 +58,10 @@ class UserAllInfo : AppCompatActivity() {
             val userPlantNameSt  = userPlantName.text.toString()
             val userPlantLocationSt = userPlantLocation.text.toString()
             val userPlantDecSt = userPlantDesc.text.toString()
+            val userPlantCreditSt = userPlantCredit.text.toString()
 
-            if(userPlantDecSt.isNotEmpty() && userPlantLocationSt.isNotEmpty() && userPlantNameSt.isNotEmpty()){
-                saveData(userPlantNameSt,userPlantLocationSt,userPlantDecSt)
+            if(userPlantDecSt.isNotEmpty() && userPlantLocationSt.isNotEmpty() && userPlantNameSt.isNotEmpty() && userPlantCreditSt.isNotEmpty()){
+                saveData(userPlantNameSt,userPlantCreditSt,userPlantLocationSt,userPlantDecSt)
             }else{
                 Toast.makeText(this, "Please fill the Empty fields",Toast.LENGTH_SHORT).show()
             }
@@ -65,19 +71,27 @@ class UserAllInfo : AppCompatActivity() {
 
     private fun saveData(
         userPlantNameSt: String,
+        userPlantCreditSt : String,
         userPlantLocationSt: String,
         userPlantDecSt: String
     ) {
 
         //Store the User Plant data to the data base with a new brach with the plant name
-        val userPlantInfo = UserPlantInfo(userPlantNameSt,userPlantLocationSt,userPlantDecSt)
+        val userPlantInfo = UserPlantInfo(userPlantNameSt,userPlantCreditSt,userPlantLocationSt,userPlantDecSt)
 
         dataBase.child(auth.currentUser!!.uid).child(userPlantNameSt).push().setValue(userPlantInfo)
 
 
         //Navigate to the DashBord Activity
-        val intent = Intent(this,DashboardActivity::class.java)
-        startActivity(intent)
-        finish()
+
+        try {
+            val intent = Intent(this,GlobalFragment::class.java)
+            Toast.makeText(this,"Plant information saved", Toast.LENGTH_SHORT).show()
+            startActivity(intent)
+            finish()
+        }catch (e:ActivityNotFoundException){
+            Toast.makeText(this,e.message,Toast.LENGTH_SHORT).show()
+        }
+
     }
 }

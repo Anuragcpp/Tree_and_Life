@@ -1,5 +1,6 @@
 package `as`.example.life.loginSignUp
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import `as`.example.life.DashboardActivity
 import `as`.example.life.R
 import `as`.example.life.databinding.ActivityLoginBinding
+import `as`.example.life.fragment.HomeFragment
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 
@@ -74,9 +76,14 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this,"Login Successfull" , Toast.LENGTH_SHORT).show()
 
                     //navigate to the DashBord Activity
-                    val intent : Intent = Intent(this, UserAllInfo::class.java)
-                    startActivity(intent)
-                    finish()
+                    val intent : Intent = Intent(this, HomeFragment::class.java)
+                    try {
+                        startActivity(intent)
+                        finish()
+                    }catch (e : ActivityNotFoundException){
+                        Toast.makeText(this,e.message,Toast.LENGTH_SHORT).show()
+                    }
+
                 }else{
                     Toast.makeText(this,it.exception?.message , Toast.LENGTH_SHORT).show()
                 }
