@@ -79,8 +79,9 @@ class GlobalFragment : Fragment() {
 //        binding.allPlantItems.layoutManager = LinearLayoutManager(context)
 
         //setting up the linear Layout manager for the recyclerView to populate
-        allPlantItems.layoutManager = LinearLayoutManager(context)
+//        allPlantItems.layoutManager = LinearLayoutManager(context)
 
+        allPlantItems.layoutManager= LinearLayoutManager(context)
 
             binding.globalAddBtn
             .setOnClickListener {

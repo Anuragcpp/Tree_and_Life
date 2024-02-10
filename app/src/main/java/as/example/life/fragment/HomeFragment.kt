@@ -6,9 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.Toolbar
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.AppCompatButton
+import androidx.drawerlayout.widget.DrawerLayout
 import `as`.example.life.CameraActivity
-import `as`.example.life.R
 import `as`.example.life.databinding.FragmentHomeBinding
 
 
@@ -16,6 +19,8 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding:FragmentHomeBinding
     private lateinit var plantDiseaseDetect:AppCompatButton
+    private lateinit var dewableIcon : ImageView
+    private lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +37,13 @@ class HomeFragment : Fragment() {
         plantDiseaseDetect.setOnClickListener {
             val intent = Intent(context,CameraActivity::class.java)
             startActivity(intent)
+        }
+
+        //logic for drawable layout
+        drawerLayout = binding.drawerLayout
+        dewableIcon = binding.dwawableBtn
+        dewableIcon.setOnClickListener {
+//            val toggle = ActionBarDrawerToggle(this,drawerLayout)
         }
         return binding.root
     }
