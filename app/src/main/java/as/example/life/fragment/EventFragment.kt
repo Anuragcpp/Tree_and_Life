@@ -64,82 +64,19 @@ class EventFragment : Fragment() {
         dataList = ArrayList()
         dataList.add(
             EventItemModel(
-                R.drawable.app_icon,
+                R.drawable.guwava,
                 "Assam",
-                "50000",
-                "Habibi come to assam!!"
+                "3000",
+                "In this event as we all know the forest are getting cut out and we will plant more trees."
             )
         )
 
         dataList.add(
             EventItemModel(
-                R.drawable.app_icon,
-                "Assam",
-                "50000",
-                "Habibi come to assam!!"
-            )
-        )
-
-        dataList.add(
-            EventItemModel(
-                R.drawable.app_icon,
-                "Assam",
-                "50000",
-                "Habibi come to assam!!"
-            )
-        )
-
-        dataList.add(
-            EventItemModel(
-                R.drawable.app_icon,
-                "Assam",
-                "50000",
-                "Habibi come to assam!!"
-            )
-        )
-
-        dataList.add(
-            EventItemModel(
-                R.drawable.app_icon,
-                "Assam",
-                "50000",
-                "Habibi come to assam!!"
-            )
-        )
-
-        dataList.add(
-            EventItemModel(
-                R.drawable.app_icon,
-                "Assam",
-                "50000",
-                "Habibi come to assam!!"
-            )
-        )
-
-        dataList.add(
-            EventItemModel(
-                R.drawable.app_icon,
-                "Assam",
-                "50000",
-                "Habibi come to assam!!"
-            )
-        )
-
-        dataList.add(
-            EventItemModel(
-                R.drawable.app_icon,
-                "Assam",
-                "50000",
-                "Habibi come to assam!!"
-            )
-        )
-
-        dataList.add(
-            EventItemModel(
-                R.drawable.app_icon,
-                "Assam",
-                "50000",
-                "Habibi come to assam!!"
+                R.drawable.bamboo,
+                "Rajasthan",
+                "5000 credits",
+                "In this event we are going to plant some tree along side the road of the national highway"
             )
         )
     }

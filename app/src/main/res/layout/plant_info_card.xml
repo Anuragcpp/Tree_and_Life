@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    app:cardElevation="20dp"
-    app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="10dp"
     android:layout_margin="10dp"
-    android:layout_height="match_parent"
+    app:cardCornerRadius="10dp"
+    app:cardBackgroundColor="@color/white"
+    android:layout_height="300dp"
     android:layout_width="match_parent">
 
 <!--    <RelativeLayout-->
@@ -83,97 +83,92 @@
 <!--        </RelativeLayout>-->
 <!--    </RelativeLayout>-->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/user_plant_img_gb"
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:src="@drawable/plant_demo"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/user_plant_name_gb"/>
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/user_plant_name_gb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ginger Plant"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:textColor="@color/text_color"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/user_plant_img_gb"
-            app:layout_constraintBottom_toTopOf="@id/user_plant_credit_gb"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_margin="10dp"
-            />
+            <ImageView
+                android:id="@+id/user_plant_img_gb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/user_plant_name_gb"
+                android:src="@drawable/plant_demo"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@id/user_plant_name_gb"/>
 
-        <TextView
-            android:id="@+id/user_plant_credit_gb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1500"
-            android:fontFamily="sans-serif"
-            android:textSize="15sp"
-            android:layout_below="@+id/user_plant_name_gb"
-            android:textColor="@color/icon_color"
-            android:layout_margin="10dp"
-            app:layout_constraintTop_toBottomOf="@id/user_plant_name_gb"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/user_plant_location_gb"
-            />
+            <TextView
+                android:id="@+id/user_plant_name_gb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="Ginger Plant"
+                android:layout_above="@id/user_plant_info_gb"
+                android:textColor="@color/text_color"
+                android:textSize="20sp"/>
 
-        <TextView
-            android:id="@+id/user_plant_location_gb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rajasthan,Suratgarh"
-            android:fontFamily="sans-serif"
-            android:textColor="@color/text_color_sub"
-            android:textSize="15sp"
-            android:layout_below="@+id/user_plant_credit_gb"
-            app:layout_constraintTop_toBottomOf="@id/user_plant_credit_gb"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/user_plant_info_gb"
-            android:layout_margin="10dp"/>
+            <TextView
+                android:id="@+id/user_plant_location_gb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="sans-serif"
+                android:text="Rajasthan,Suratgarh"
+                android:layout_alignParentEnd="true"
+                android:layout_above="@+id/user_plant_info_gb"
+                android:textColor="@color/text_color_sub"
+                android:textSize="15sp"/>
 
-        <TextView
-            android:id="@+id/user_plant_info_gb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ldkfjalsdkfj lkdjaflks j lfjalkl  ldfajsldf f kdj  kldsafjlsdj f a fla..."
-            android:layout_below="@+id/user_plant_location_gb"
-            android:fontFamily="sans-serif"
-            android:textSize="15sp"
-            android:textColor="@color/text_color_sub"
-            app:layout_constraintTop_toBottomOf="@id/user_plant_location_gb"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/user_plant_moreDetails_Btn"
-            android:layout_margin="10dp"/>
+            <TextView
+                android:id="@+id/user_plant_info_gb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:maxLines="2"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="sans-serif"
+                android:text="ldkfjalsdkfj lkdjaflks j lfjalkl  ldfajsldf f kdj  kldsafjlsdj f a fla..."
+                android:textColor="@color/text_color_sub"
+                android:textSize="15sp" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/user_plant_moreDetails_Btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="more details"
-            android:textAllCaps="false"
-            android:textSize="15sp"
-            android:background="@drawable/btn_bg"
-            android:padding="10dp"
-            android:textColor="@color/text_color"
-            android:layout_alignParentBottom="true"
-            android:fontFamily="sans-serif"
-            app:layout_constraintTop_toBottomOf="@id/user_plant_info_gb"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_margin="10dp"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/user_plant_moreDetails_Btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="sans-serif"
+                android:text="more details"
+                android:padding="10dp"
+                android:textAllCaps="false"
+                android:textColor="@color/text_color"
+                android:textSize="15sp"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

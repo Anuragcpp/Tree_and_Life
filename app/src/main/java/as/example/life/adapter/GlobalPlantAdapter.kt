@@ -58,8 +58,8 @@ class GlobalPlantAdapter ( private val list : MutableList<GlobalItemsModel>) :
             with(list[position]){
                 binding.userPlantNameGb.text = this.userPlantName
                 binding.userPlantLocationGb.text= this.userPlantLocation
-                binding.userPlantCreditGb.text = this.userPlantCredit
                 binding.userPlantInfoGb.text = this.userPlantInfo
+               holder.binding.userPlantImgGb.setImageResource(this.userPlantImg)
             }
         }
     }

@@ -81,7 +81,7 @@ class GlobalFragment : Fragment() {
         //setting up the linear Layout manager for the recyclerView to populate
         allPlantItems.layoutManager = LinearLayoutManager(context)
 
-//        view.findViewById<ImageView>(R.id.global_add_btn)
+
             binding.globalAddBtn
             .setOnClickListener {
             val intent = Intent (requireContext(), UserAllInfo::class.java)
